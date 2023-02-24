@@ -131,7 +131,7 @@ const runner = async (maxAttempts = 1, attemptsCounter = 0) => {
         console.log(`Попытка ${attemptsCounter} из ${maxAttempts} не удалась из-за ошибки: ${error.message}`)
         await runner(maxAttempts, attemptsCounter)
       } else {
-        console.log(`Не удалось спарсить после ${maxAttempts} попыток`)
+        throw new Error(`Не удалось спарсить после ${maxAttempts} попыток`)
       }
     }
   }
